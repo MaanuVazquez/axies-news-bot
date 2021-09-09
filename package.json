@@ -32,7 +32,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "start": "node -r ./tsconfig-paths-bootstrap.js dist/index.js",
+    "start": "node -r dotenv/config -r ./tsconfig-paths-bootstrap.js dist/index.js",
     "dev": "nodemon --config nodemon.json src/index.ts"
   }
 }

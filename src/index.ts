@@ -3,14 +3,12 @@ import Discord from 'discord.js'
 import { CronJob } from 'cron'
 import fetchNewsTask from './fetch-news'
 
-dotenv.config()
-
-const { DISCORD_BOT_TOKEN } = process.env
+const { CRON_JOB_TIME, DISCORD_BOT_TOKEN } = process.env
 
 const client = new Discord.Client()
 
 client.on('ready', () => {
-  new CronJob('*/10 * * * * *', () => {
+  new CronJob(CRON_JOB_TIME, () => {
     fetchNewsTask(client)
   }).start()
 })
